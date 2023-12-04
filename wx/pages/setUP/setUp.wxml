@@ -1,0 +1,55 @@
+<view class="containers">
+  <form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="page-main">
+
+      <view class="page-section">
+        <label>主题</label>
+        <radio-group bindchange="toggleTheme" class="radio-group">
+          <label class="radio">
+            <radio value="light" checked="{{theme === 'light'}}" />白
+          </label>
+          <label class="radio">
+            <radio value="dark" checked="{{theme === 'dark'}}" />黑
+          </label>
+        </radio-group>
+      </view>
+
+      <view class="page-section">
+        <view>语言</view>
+        <picker bindchange="bindPickerChangeSpeak" value="{{indexSpeak}}" range="{{arraySpeak}}">
+          <view class="picker" style="display: flex;">
+            <view class="pickers">{{arraySpeak[indexSpeak]}}</view>>
+          </view>
+        </picker>
+      </view>
+
+      <view class="page-section">
+        <view>角色</view>
+        <picker bindchange="bindPickerChangeRole" value="{{indexRole}}" range="{{arrayRole}}">
+          <view class="picker" style="display: flex;">
+            <view class="pickers">{{arrayRole[indexRole]}}</view>>
+          </view>
+        </picker>
+      </view>
+
+      <view class="page-section">
+        <view>语速</view>
+        <view class="body-view">
+          <slider bindchange="speedChange" value='speed' show-value />
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view>音调</view>
+        <view class="body-view">
+          <slider bindchange="toneChange" value='tone' show-value />
+        </view>
+      </view>
+
+      <view class="btns">
+        <button style="margin-right: 10px;background-color: rgba(230, 248, 179, 0.363);border:1px solid gray" bindtap="resetdata">重置</button>
+        <button style="margin-left: 10px;background-color: rgba(16, 164, 201, 0.363);border:1px solid gray" bindtap="savedata">保存</button>
+      </view>
+    </view>
+  </form>
+</view>

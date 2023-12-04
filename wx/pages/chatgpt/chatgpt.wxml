@@ -1,0 +1,106 @@
+<view class="chatgpt-body">
+  <view class="chatgpt-container">
+    <scroll-view class="chatgpt-main" scroll-y="true" bindtap="closeFunction">
+      <view class="chatgpt-for" wx:for="{{messagesAudio}}" wx:for-item="message" wx:for-index="index" scroll-y="true">
+        <view class="chatgpt-chat left" wx:if="{{message.role=='assistant'}}">
+          <image src="/static/images/智能机器人.svg"></image>
+          <view class="chat-text" wx:if="{{audioFlag==false}}">{{message.content}}</view>
+          <view class="chat-audio" wx:else="">
+            <view class="audio" data-index="{{index}}" bindtap="playAudio" style="width: 70px;height: 20px;">
+              <view></view>
+              <view class="{{message.isPlay ? 'aui1' : ''}}"></view>
+              <view class="{{message.isPlay ? 'aui2' : ''}}"></view>
+              <audio id="audio{{index}}" src="data:audio/x-wav;base64, {{message.audioBase64}}" bindpause="pauseAudio" bindended="pauseAudio" data-index="{{index}}"></audio>
+            </view>
+            <text wx:if="{{message.hiddenText==true}}" bind:tap="openAudioToText" data-index="{{index}}">转为文字</text>
+            <text wx:else="" bind:tap="closeAudioToText" data-index="{{index}}">隐藏文字</text>
+            <view class="text" wx:if="{{message.hiddenText==false}}">{{message.content}}</view>
+          </view>
+        </view>
+        <view class="chatgpt-chat right" wx:if="{{message.role=='user'}}">
+          <image src="../imags/加.png"></image>
+          <view>{{message.content}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="bottom" style="height: {{bottomHeight}}px;">
+      <view class="bottom-image" style="margin-right: 5px;" bindtap="openVoice">
+        <image src="../imags/语音.png"></image>
+      </view>
+      <textarea class="textarea" style="height: {{textareaHeight}}px;" bindlinechange="changeHeight" bindinput="onInput" bind:tap="closeFunction" value="{{chatQuestion}}" show-confirm-bar="{{false}}" cursor-spacing="20"></textarea>
+      <view wx:if="{{audioFlag==false}}" class="bottom-image" style="margin-left: 5px;" bindtap="getAnsware">
+        <image src="../imags/发送.png"></image>
+      </view>
+      <view wx:else="" class="bottom-image" style="margin-left: 5px;" bindtap="getAnswareAudio">
+        <image src="../imags/发送.png"></image>
+      </view>
+      <view class="bottom-image" style="margin-left: 5px;" bindtap="openFunction">
+        <image src="../imags/加.png"></image>
+      </view>
+    </view>
+    <view class="function" wx:if="{{functionFlag==true}}">
+      <view class="function-son" bindtap="addHistory" wx:if="{{audioFlag==false}}">
+        <image src="../imags/保存.png"></image>
+        <view>保存</view>
+      </view>
+      <view class="function-son" bindtap="deleteChat">
+        <image src="../imags/删除 (1).png"></image>
+        <view>删除</view>
+      </view>
+      <view class="function-son" bindtap="openHistory" wx:if="{{audioFlag==false}}">
+        <image src="../imags/历史记录.png"></image>
+        <view>历史记录</view>
+      </view>
+      <view class="function-son" bindtap="navigateToSetting">
+        <image src="../imags/设置.png"></image>
+        <view>个性设置</view>
+      </view>
+      <view class="function-son" wx:if="{{audioFlag==false}}" bindtap="openAudio">
+        <image src="../imags/语音 (4).png"></image>
+        <view>语音模式</view>
+      </view>
+      <view class="function-son" wx:else="" bindtap="closeAudio">
+        <image src="../imags/语音 (4).png"></image>
+        <view>文字模式</view>
+      </view>
+    </view>
+    <view class="history" wx:if="{{historyFlag}}">
+      <view class="history-header">
+        <text>历史记录</text>
+      </view>
+      <scroll-view class="history-main" scroll-y="true" bindscrolltolower="getHistory">
+        <view class="history-for" wx:for="{{chatHistory}}" wx:for-item="chatHistory" wx:for-index="index" scroll-y="true">
+          <view class="history-content" data-index="{{index}}" bind:tap="setMessages">{{chatHistory.text[chatHistory.text.length-1].content}}</view>
+          <image src="../imags/删 除.png" bindtap="deleteChatHistory" data-id="{{chatHistory.id}}"></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+<view class="body" bind:touchmove="moveVoice" bind:touchend="endVoice" wx:if="{{isVoice}}">
+  
+  <view class="voice" style="{{voiceStyle}}">
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+  </view>
+  <view class="option">
+    <text wx:if="{{isPause&&isStart}}">松开取消</text>
+    <view class="cancel" style="{{cancelStyle}}">
+      <image src="../imags/叉叉 (2).png"></image>
+    </view>
+  </view>
+  <view class="start" style="{{startStyle}}" bindtouchstart="startVoice">
+    <text wx:if="{{!isPause&&isStart}}">松开发送</text>
+    <image src="../imags/语音 (5).png"></image>
+  </view>
+</view>

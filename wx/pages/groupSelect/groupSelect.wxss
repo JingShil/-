@@ -1,0 +1,74 @@
+/* pages/groupSelect/groupSelect.wxss */
+/* 警示 */
+.warning {
+  background-color: #faf9f9; /* 警示部分的背景颜色 */
+  padding: 10px; /* 警示部分的内边距 */
+}
+
+.warning-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 每个警示项之间的下边距 */
+}
+
+.warning-icon {
+  width: 20px; /* 警示图标的宽度 */
+  height: 20px; /* 警示图标的高度 */
+  margin-right: 5px; /* 警示图标与警示文本之间的右边距 */
+}
+
+.warning-text {
+  color: rgb(100, 85, 235); /* 警示文本的颜色 */
+  font-weight: bold; /* 警示文本的字体加粗 */
+}
+.userout{
+  padding: 20rpx;
+  padding-top: 30rpx;
+}
+
+.userbox{
+  height: 150rpx;
+  width: 100%;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 30%;
+  margin-bottom: 30rpx;
+
+}
+.userbox .pic{
+  padding: 10rpx;
+  height: 100rpx;
+  width: 25%;
+  border-radius: 50%;
+}
+.text{
+  color: rgb(155, 153, 153);
+  font-size: 30rpx;
+}
+
+.picker {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: default;
+}
+
+/* 可选：为了模拟下拉框的样式，添加一些额外的样式 */
+.picker::after {
+  content: '\25BE'; /* Unicode字符，表示向下箭头 */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #666;
+  pointer-events: none;
+}
+
+.picker:focus {
+  outline: none; /* 去除聚焦时的边框样式 */
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1); /* 聚焦时添加阴影效果 */
+}

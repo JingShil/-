@@ -1,0 +1,108 @@
+<!--pages/comment/comment.wxml-->
+<view style="display: flex; justify-content: space-between; align-items: center;">
+  <text>开会计时中....</text>
+</view>
+
+<view class="article" style="height: {{articleHeight}}rpx;">
+  <view class="notice-header">{{noticeData.title}}</view>
+  <view class="notice-content" style="height: {{contentHeight}}rpx;">
+    {{noticeData.text}}
+  </view>
+  <view class="notice-footer">更多信息请访问我们的网站。</view>
+</view>
+
+<view class="divider"></view>
+
+<view class="divider"></view>
+
+<view style="display: flex;align-items: center;padding-top: 10rpx;">
+  <view style="display: flex; flex-direction: column;justify-content: center; align-items: center;margin-left: 20rpx;">
+    <image src="/static/images/定位.svg" style="width: 30px; height: 30px;" />
+    <text style="color: blue;">签到</text>
+  </view>
+  <view style="display: flex; flex-direction: column;justify-content: center; align-items: center;margin-left: 20rpx;">
+    <image src="/static/images/请假申请.svg" style="width: 30px; height: 30px;" />
+    <text style="color: red;">请假</text>
+  </view>
+</view>
+
+<view class="view-contain-ti">
+  <view>
+    <!-- <text class="text-ti">评论</text> -->
+    <input class="input1" value="{{inputValue}}" placeholder="评论点什么吧~" bindinput="onInput"></input>
+  </view>
+  <view style="display: flex; justify-content: space-between; align-items: center;">
+    <button style="background: #e7abab; margin-right: 0;padding-bottom: 5rpx;height:60rpx;" size="mini" bindtap="onSubmit">评论</button>
+  </view>
+  <view style="padding-top: 5rpx;"></view>
+</view>
+<view class="divide"></view>
+<view class="comment-count">
+     <p>共{{commentsCount}}条评论</p>
+</view>
+<view class="comment-content">
+  <scroll-view class="scroll" scroll-y="true">
+  <view wx:for="{{wxcomments}}" wx:key="id" style="border-bottom: 1px solid #ccc;padding: 10rpx 0;display: flow;">
+    <!-- 头像 -->
+    <view style="width: 400rpx;display: flex;">
+      <image src="{{item.image}}" style="width: 50rpx; height: 50rpx; margin:0 10rpx;border-radius: 50%"></image>
+      <text style="font-size: 30rpx;color: #000203">{{item.name}}:</text>
+    </view>
+
+    <view style="margin-left: 50rpx;">
+      <span>{{item.content}}</span>
+    </view>
+
+    <view style="display: flex; justify-content: space-between; align-items: center;padding-top: 10rpx;">
+      <view style="padding-top: 5rpx;margin-left: 50rpx;">
+        <i>
+          <el-icon>
+            <Clock />
+          </el-icon>
+        </i><b style="color: blueviolet">
+          T{{item.time}}</b>
+      </view>
+      <view style="text-align: right;flex: 1">
+        <button data-id="{{item.id}}" data-subitem="{{item}}" style="margin-right: 20px" type="text" size="mini" bind:tap="showModal">回复</button>
+        <button data-id="{{item.id}}" data-subitem="{{item}}" style="margin-right: 5rpx;color: red" type="text" size="mini" bind:tap="DeleteWxCommentFirst" wx:if="{{userInfo==item.userid}}">删除</button>
+      </view>
+    </view>
+    <!-- 评论回复 -->
+    <block>
+      <view wx:if="{{item.children && item.children.length > 0}}" wx:for="{{ item.children}}" wx:for-item="subItem" wx:key="id" style="width:650rpx;padding-top: 10rpx;background-color: #e4dcdc75;margin-left:8%">
+        <view style="width: 400rpx;display: flex;">
+          <image src="{{subItem.image}}" style="width: 50rpx; height: 50rpx;  margin:0 10rpx;border-radius: 50%"></image>
+          <text style="font-size: 30rpx;color: #000203">{{subItem.name}}:@{{subItem.puserName}}</text>
+        </view>
+
+        <view style="margin-left: 50rpx;">
+          <span>{{subItem.content}}</span>
+        </view>
+        <view style="display: flex; justify-content: space-between; align-items: center;padding-top: 10rpx;">
+          <view style="padding-top: 5rpx;margin-left: 50rpx;">
+            <i>
+              <el-icon>
+                <Clock />
+              </el-icon>
+            </i><b style="color: blueviolet">
+              T{{subItem.time}}</b>
+          </view>
+          <view style="text-align: right;flex: 1">
+            <button style="margin-right: 10rpx" type="text" size="mini" data-id="{{subItem.userid}}" data-subitem="{{subItem}}" bind:tap="showModal">回复</button>
+
+            <button data-id="{{subItem.userid}}" data-subitem="{{subItem}}" style="margin-left: 5rpx;color: red" type="text" size="mini" bind:tap="DeleteWxCommentSecond" wx:if="{{userInfo==subItem.userid}}">删除</button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+</view>
+
+<view>
+  <modal hidden="{{modalHidden}}" bindconfirm="confirmModal" bindcancel="cancelModal">
+    <text>@用户的ID:{{replyTo.replyToId}}</text>
+    <input placeholder="请输入回复内容" bindinput="inputChange" value="{{replyNewContent}}" style="color: black;"></input>
+    <view class="divider"></view>
+  </modal>
+</view>

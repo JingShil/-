@@ -1,0 +1,38 @@
+.dropdown {
+  width: 200px;
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.arrow {
+  margin-left: 5px;
+}
+
+.dropdown-list {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.friend {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.friend:last-child {
+  border-bottom: none;
+}
+
+.friend:hover {
+  background-color: #f0f0f0;
+}

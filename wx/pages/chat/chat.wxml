@@ -1,0 +1,55 @@
+<!--pages/chat/chat.wxml-->
+
+<view class="container">
+   <!-- <view>传值的数据:{{fromMeet.meetid}}</view> -->
+  <scroll-view class="chat-scroll" scroll-y="true" scroll-into-view="{{scrollIntoView}}" scroll-with-animation >
+    <view wx:for="{{messages}}" wx:key="index" class="message" wx:for-item="item" wx:if="{{item.role=='assistant'}}">
+      <image class="pic" src="/static/images/填选购人.svg"></image>AI
+      <view class="message-content">
+        {{item.content}}
+     </view>
+      <view class="message-time">{{item.time}}</view>
+      <view style="text-align: right;padding-top: 5rpx;">
+        <radio-group bindchange="radioChange" data-item="{{item.content}}">
+        <radio value="{{index}}" class="radio" checked="{{index == selectedIdx}}">
+        </radio>
+      </radio-group>
+    </view>
+    </view>
+  </scroll-view>
+  <view class="input-container">
+    
+    <view class="selected">
+     <text>通知形式:</text>
+
+     <view>
+     <view class="swtichRow">
+      <text style="color: blue;">指示规定性通知:</text>
+      <switch style="margin-left: auto;" checked="{{switch1}}" bindchange="switch1Change"/>
+     </view>
+     <view class="swtichRow">
+      <text style="color: blue;">发布性通知:</text>
+     <switch style="margin-left: auto;" checked="{{switch2}}" bindchange="switch2Change"/>
+     </view>
+     <view class="swtichRow">
+      <text style="color: blue;">任免聘用:</text>
+     <switch style="margin-left: 280rpx;"  checked="{{switch3}}" bindchange="switch3Change"/>
+     </view>
+   
+     </view>
+  
+    </view>
+    <view style="display: flex;align-items: center;">
+      <input class="input-box" bindinput="onInput" placeholder="请输入消息" value="{{inputValue}}"/>
+      <image src="/static/images/发送.svg" class="icon" bind:tap="sendMessage"></image>
+    </view>
+    
+    <view style="display: flex;align-items: center;">
+    <button class="send-button" bindtap="sendMessageSwitch" size="mini">生成</button>
+    <text>上下文:</text>
+    <button class="send-button" size="mini">换一个</button>
+    <button  class="send-button" size="mini" style="margin-right: 0;" bind:tap="confirm">确认</button>
+    </view>
+
+  </view>
+</view>

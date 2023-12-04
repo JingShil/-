@@ -1,0 +1,85 @@
+<!--pages/groupSon/groupSon.wxml-->
+<view class="warning">
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">请按照步骤操作。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">邀请码是随机生成，可以更改，限定8位。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">请选择初步参与人...人多时选用邀请码进入组。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">如有问题请联系管理员。</view>
+  </view>
+</view>
+
+<view class="view-contain-ti">
+  <image src="/static/images/group.svg" class="icon2"></image>
+      <view>
+      <text class="text-ti">创建组名</text>
+      <input class="input1" value="{{inputGroupName}}" bindinput="onInput1" placeholder="请输入..." auto-focus></input>
+      </view>
+      
+</view>
+<view class="view-contain-ti">
+     <image src="/static/images/邀请码.svg" class="icon2"></image>
+      <view>
+      <text class="text-ti">生成邀请码</text>
+      <input class="input1" value="{{invitation}}" bindinput="onInput" placeholder="请输入..." auto-focus></input>
+      </view>
+      <image src="/static/images/自动生成.svg" class="icon2" bind:tap="foundInvitation"></image>
+</view>
+<view class="view-contain-ti">
+     <image src="/static/images/查找用户.svg" class="icon2"></image>
+      <view>
+      <text class="text-ti">查询人名</text>
+      <input class="input1" value="{{inputUserName}}" bindinput="onInput" placeholder="请输入..." auto-focus></input>
+      </view>
+      <image src="/static/images/搜索.svg" class="icon2" bind:tap="showInput"></image>
+</view>
+
+<view style="padding: 20rpx;display: flex;align-items: center;">
+    <text>可能想认识的人..</text>
+</view>
+
+<!-- 在wxml文件中 -->
+<view>
+  <!-- 显示用户列表 -->
+  <block wx:for="{{ userList }}" wx:key="index">
+
+    <view style="display: flex;">
+      <image src="{{item.image}}" class="icon" ></image>
+      <view style="display: flex;flex-direction: column;">
+       <text>{{ item.name }}</text>
+       <image src="/static/images/男.svg" wx:if="{{item.sex=='男'}}" class="sexicon"></image>
+       <image src="/static/images/女.svg" wx:if="{{item.sex=='女'}}" class="sexicon"></image>
+       <view style="display: flex;align-items: center;">
+       <image  src="/static/images/电子签名.svg" class="sexicon" ></image>
+       <text style="font-size: 30rpx;">{{item.design}}</text>
+      </view>
+      </view>
+      
+      <checkbox-group bindchange="checkboxChange" style="margin-left:auto;padding:20rpx;" data-id="{{item.id}}">
+                  <checkbox value="{{item.id}}" checked="{{item.checked==true}}" disabled="{{item.id == xmluserInfoId}}" ></checkbox>
+        </checkbox-group>
+    </view>
+   
+    <!-- 显示其他用户信息 -->
+    ...
+  </block>
+
+  <!-- 分页按钮 -->
+  <view style="display: flex;align-items: center;justify-content: center;">
+    <image src="/static/images/箭头_上一页.svg" class="icon" bindtap="prevPage"></image>
+    <image src="/static/images/箭头_下一页.svg" class="icon" bindtap="nextPage"></image>
+  </view>
+ 
+</view>
+<view style="display: flex;align-items: center;">
+  <button style="margin-right: 20rpx;background: rgb(150, 171, 231);" size="mini" bind:tap="foundConfirm">创建</button>
+</view>

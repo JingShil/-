@@ -1,0 +1,12 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "通知评论区",
+  "navigationBarBackgroundColor": "#99FF99",
+  "properties": {
+    "item": {
+      "type": null,
+      "value": null
+    }
+  }
+  
+}

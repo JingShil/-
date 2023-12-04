@@ -1,0 +1,23 @@
+<view class="body">
+  <scroll-view class="container" scroll-y="true">
+    <view class="main">
+      <view class="for" wx:for="{{settings}}" wx:for-item="setting" wx:for-index="index">
+        <view>{{setting.title}}：</view>
+        <picker class="select" mode="selector" range="{{setting.settingChildren}}" value="{{setting.defaultValue}}"  data-index="{{index}}"
+        bindchange="pickerChange" wx:if="{{setting.type=='select'}}" >
+          <text>{{setting.settingChildren[setting.userDefaultValue]}}</text>
+        </picker>
+        <view class="slider" wx:if="{{setting.type=='slider'}}">
+          <view class="slider-main">
+              <slider bindchange="sliderChange" data-index="{{index}}" show-value min="{{setting.settingChildren[0]}}" 
+              max="{{setting.settingChildren[1]}}" step="0.1" value="{{setting.userDefaultValue}}"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <button type="primary" bind:tap="saveSettings">保存</button>
+      <button  bind:tap="resetSetting" style="background-color: rgb(97, 199, 240);">重置</button>
+    </view>
+  </scroll-view>
+</view>

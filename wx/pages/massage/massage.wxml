@@ -1,0 +1,75 @@
+<view class='container'>
+<!--头像名称-->
+<view class="partOne">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <!-- <!-- <view class="scanicon">
+    <image src="../../images/scan.png" />
+  </view> -->
+</view>
+
+<view class="partTwo">
+  <view class="item" bindtap="TomyInformation">
+    <view class="itemname" >
+      <view ><image src="/static/images/用户中心.svg" /></view>
+      <view ><text >我的资料</text></view>
+    </view>
+    <view class="right"><image src="/static/images/向右1.svg"></image></view>
+  </view>
+
+  <view class="item" bindtap="setDataUP">
+    <view class="itemname">
+      <view ><image src="/static/images/设置.svg" /></view>
+      <view ><text  >设置中心</text></view>
+    </view>
+    <view class="right" ><image src="/static/images/向右1.svg"></image></view>
+  </view>
+</view>
+
+
+<view class="partThree">
+  <!--关于我们-->
+  <view class="item">
+    <view class="itemname">
+      <view ><image src="/static/images/about.svg" /></view>
+      <view ><text >关于我们</text></view>
+    </view>
+    <view class="right"><image src="/static/images/向右1.svg"></image></view>
+  </view>
+  
+  <!--使用帮助-->
+  <view class="item">
+    <view class="itemname">
+      <view ><image src="/static/images/help.svg" /></view>
+      <view ><text >使用帮助</text></view>
+    </view>
+    <view class="right"><image src="/static/images/向右1.svg"></image></view>
+  </view>
+
+  <view class="item" bindtap="Tologin">
+    <view class="itemname">
+      <view ><image src="/static/images/退出.svg" /></view>
+      <view ><text >退出登录</text></view>
+    </view>
+    <view class="right" ><image src="/static/images/向右1.svg"></image></view>
+  </view>
+</view>
+
+</view>
+

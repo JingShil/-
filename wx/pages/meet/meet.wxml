@@ -1,0 +1,83 @@
+<!--pages/meet/meet.wxml-->
+<view class="warning">
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">按照步骤进行操作。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">添加会议成员时，推荐选择组群更加方便。</view>
+  </view>
+</view>
+
+<view class="divider">
+</view>
+<view class="out">
+ <view class="meetbox" wx:for="{{meetData}}" wx:key="meetid">
+<view style="margin-left: 10rpx;">
+  <view>
+  <text style="color: {{item.color}};font-size: 45rpx;padding:10rpx;">主题：{{item.theme}}</text>
+ </view>
+  <view style="display: flex;padding-top: 5rpx;align-items: center;">
+      <image src="/static/images/填选购人.svg" class="icon"></image>
+     发布人:{{item.promoter}}
+    </view>
+
+    <view style="display: flex;padding-top: 10rpx;align-items: center;">
+      <image src="/static/images/clock.svg" class="icon"></image>
+      {{item.protime}}
+
+      <image src="/static/images/arrow-double-right.svg" class="icon" style="margin-left:auto;" bind:tap="navigatorToComment" data-item="{{item}}">
+      </image>
+    </view>
+  <view>
+    </view>
+    <view style="display: flex;padding-top: 5rpx;align-items: center;">
+      <image src="/static/images/定位.jpg" class="icon"></image>
+     {{item.address}}
+    </view>
+
+</view>
+  <view style="display: flex;padding: 10rpx;align-items: center;">
+    <image src="/static/images/我的流程.svg" class="icon"></image>
+
+    <view style="display: flex;flex-direction: column;align-items: center;">
+      <button size="mini" style="background: rgb(226, 236, 211);" bind:tap="showMemberModal" data-item="{{item}}">选择成员</button>
+      <image src="/static/images/或.svg" class="icon2"></image>
+      <button size="mini" style="padding-top: 10rpx;" bind:tap="showSelectGroupPage" data-item="{{item}}">选择组群</button>
+    </view>
+   
+
+    <image src="/static/images/行进.svg" class="icon"></image>
+    <button size="mini" bind:tap="showWriteNoticeModal" data-item="{{item}}" >撰写通知</button>
+    <image src="/static/images/行进.svg" class="icon"></image>
+    <button size="mini">发布通知</button>
+  </view>
+</view>
+</view>
+
+<view>
+   <modal hidden="{{MemberModalHidden}}" bindconfirm="confirmMemberModal" bindcancel="cancelMemberModal">
+      <view>请选择特定参会的成员:</view>
+        <view class="userout">
+            <view class="userbox" wx:for="{{UserList}}" wx:key="id" wx:for-subitem="item">
+                  <view style="display: flex;">
+                  <image class="pic" src="{{item.image}}"></image>
+                  <text>{{item.name}}</text>
+                  <text style="color: blue;" wx:if="{{item.id == xmluserInfoId}}">本人</text>
+                  <checkbox-group bindchange="checkboxChange" style="margin-left:auto;" data-id="{{item.id}}">
+                  <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.id == xmluserInfoId}}" ></checkbox>
+                 </checkbox-group>
+                     
+                  </view>
+                  
+            </view>
+        </view>
+   </modal>
+</view>
+
+<view>
+   <modal hidden="{{WriteNoticeModalHidden}}" bindconfirm="confiremWriteNoticeModal" bindcancel="cancelWriteNoticeModal" >
+      <chatNotice message="{{ToWriteNoticePage}}"></chatNotice>
+  </modal>
+</view>

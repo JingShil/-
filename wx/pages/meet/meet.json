@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#CCCCCC",
+  "onReachBottomDistance": 200,
+  "navigationBarTitleText": "会议列表",
+  "navigationBarBackgroundColor": "#fff"
+}

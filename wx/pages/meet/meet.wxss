@@ -1,0 +1,71 @@
+/* pages/meet/meet.wxss */
+.out{
+  padding: 10rpx;
+  background: -webkit-linear-gradient(top,rgb(222, 226, 241),rgb(222, 223, 228),#37437a);
+}
+
+.meetbox{
+  height: 450rpx;
+  width: 100%;
+  background: white;
+  border: 1px solid gray;
+  margin-bottom: 30rpx;
+  /* margin-right:10px; */
+  border-radius: 3%;
+}
+/* 分割线*/
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 10rpx;
+}
+.userout{
+  padding: 10rpx;
+}
+
+.userbox{
+  height: 100rpx;
+  width: 100%;
+  background: white;
+  border: 1px solid gray;
+  margin-bottom: 30rpx;
+}
+.userbox .pic{
+  height: 100rpx;
+  width: 25%;
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+.icon2
+{
+  padding:5rpx;
+  width: 45rpx;
+  height: 45rpx;
+  
+}
+
+.warning {
+  background-color: #faf9f9; /* 警示部分的背景颜色 */
+  padding: 10px; /* 警示部分的内边距 */
+}
+
+.warning-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 每个警示项之间的下边距 */
+}
+
+.warning-icon {
+  width: 20px; /* 警示图标的宽度 */
+  height: 20px; /* 警示图标的高度 */
+  margin-right: 5px; /* 警示图标与警示文本之间的右边距 */
+}
+
+.warning-text {
+  color: rgb(132, 171, 230); /* 警示文本的颜色 */
+  font-weight: bold; /* 警示文本的字体加粗 */
+}

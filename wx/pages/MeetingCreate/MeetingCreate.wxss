@@ -1,0 +1,43 @@
+/* pages/MeetingCreate/MeetingCreate.wxss */
+.containers{
+  height:100vh;
+  background-color:#eee ;
+  padding:10px 0;
+}
+
+.page-main{
+margin:10px 10px;
+border-radius: 10px;
+padding:10px;
+background-color: #fff;
+}
+/* 每一项 */
+.page-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding:10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+}
+/* 小框 */
+.pickers{
+border-radius: 5px;
+box-sizing: border-box;
+padding:0 20px;
+color:rgba(129, 121, 121, 0.925)
+}
+
+.picker{
+  display: flex;
+  align-items: center;
+}
+
+.picker image{
+height:30rpx;
+width:30rpx;
+}
+
+button{
+background-color: blue;
+}

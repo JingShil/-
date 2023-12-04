@@ -1,0 +1,53 @@
+<!--pages/groupSelect/groupSelect.wxml-->
+<view style="display: flex;align-items: center;justify-content: center;">
+  <text>我加入的组....</text>
+</view>
+<view class="warning">
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">请按照步骤操作。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">以下列出的是自己加入的组。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">会议编号->
+    <text style="color: red;">{{fromMeet.meetid}}。</text>
+    </view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">如有问题请联系管理员。</view>
+  </view>
+</view>
+
+
+
+<view class="userout">
+            <view class="userbox" wx:for="{{myGroupList}}" wx:key="id" wx:for-subitem="item">
+
+              
+                  <view style="display: flex;align-items: center;">
+                  <image class="pic" src="{{globalimage}}"></image>
+                  <view style="display: flex;flex-direction: column;align-items: center;">
+                  <text class="text">{{item.groupname}}</text>
+                  <text>创建者:{{item.founder}}</text>
+                  <text>组员查看</text>
+                  <!-- <picker mode="selector" range="{{['组员查看']}}" bindchange="pickerChange" disabled="{{true}}">
+                    <view class="picker">{{item.groupname}}</view>
+                </picker> -->
+                </view>
+                  <checkbox-group bindchange="checkboxChange" style="margin-left:auto;" data-id="{{item.groupid}}">
+                  <checkbox value="{{item.groupid}}" checked="{{item.checked}}" disabled="{{item.groupid == xmluserInfoId}}" ></checkbox>
+                 </checkbox-group>
+                     
+                  </view>
+                  
+            </view>
+        </view>
+
+        <view style="display: flex;">
+          <button size="mini" bind:tap="submit">确认选择</button>
+        </view>

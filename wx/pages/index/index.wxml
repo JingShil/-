@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="containers" >
+  <swiper indicator-dots="true" indicator-color="white" indicator-active-color="gray" autoplay="true" interval="3000" circular="true">
+  <swiper-item >
+    <!-- <image src="/images/tabs/school.jpg " mode="aspectFit" /> -->
+  </swiper-item>
+  <swiper-item>
+    <!-- <image src="/images/tabs/school.jpg" mode="aspectFit" /> -->
+  </swiper-item>
+</swiper>
+<view class="main_items">
+  <view class="main_items_item" bindtap="goToMeetingCreate">
+    <text>会议创建</text>
+    <image src="/static/images/会议s.svg" />
+  </view>
+  <view class="divider"></view>
+  <view class="main_items_item" bindtap="goToMeetingManage">
+    <text>会议管理</text>
+    <image  src="/static/images/会议登记.svg" />
+  </view>
+  <view class="divider"></view>
+  <view class="main_items_item" bindtap="goToMessageManage">
+    <text>组管理</text>
+    <image src="/static/images/组.svg" />
+  </view>
+</view>
+</view>

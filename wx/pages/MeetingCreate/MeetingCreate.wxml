@@ -1,0 +1,89 @@
+<view class="containers">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="page-main">
+        <view class="page-section">
+          <label>主题</label>
+          <input class="pickers" name="input" placeholder="请输入会议主题" bindinput="handleInput" />
+        </view>
+
+        <view class="page-section">
+          <view>创建者</view>
+          <picker bindchange="bindPickerChangeTitle" value="{{indexTitle}}" range="{{arrayTitle}}">
+            <view class="picker" >
+              <view class="pickers">{{arrayTitle[indexTitle]}}</view>
+              <image src="/static/images/向右1.svg"></image>
+            </view>
+          </picker>
+        </view>
+
+        <!-- <view class="page-section">
+        <view>参会组</view>
+        <picker bindchange="bindPickerChangeClass" value="{{indexClass}}" range="{{arrayClass}}">
+            <view class="picker" style="display: flex;">
+              <view class="pickers">{{arrayClass[indexClass]}}</view>>
+            </view>
+          </picker>
+      </view> -->
+
+      <view class="page-section">
+          <view>会议地点</view>
+          <picker bindchange="bindPickerChangeLocation" value="{{indexLocation}}" range="{{arrayLocation}}">
+            <view class="picker" >
+              <view class="pickers">{{arrayLocation[indexLocation]}}</view>
+              <image src="/static/images/向右1.svg"></image>
+            </view>
+          </picker>
+        </view>
+
+        <view class="page-section">
+          <view>会议日期</view>
+          <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="picker">
+              <view class="pickers">{{date}}</view>
+              <image src="/static/images/向右1.svg"></image>
+            </view>
+          </picker>
+        </view>
+
+        <view class="page-section">
+          <view>会议开始时间</view>
+          <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+            <view class="picker" >
+              <view class="pickers">{{time}}</view>
+              <image src="/static/images/向右1.svg"></image>
+            </view>
+          </picker>
+        </view>
+
+        <!-- <view class="page-section">
+          <view>会议时长</view>
+          <picker mode="selector" range="{{ durationArray }}" bindchange="onDurationChange">
+            <view class="picker" style="display: flex;">
+              <view class="pickers"> {{ durationArray[durationIndex] }}</view>>
+            </view>
+          </picker>
+        </view> -->
+      </view>
+
+
+      <view class="page-main">
+        <view>会议介绍</view>
+        <textarea value="{{introduction}}" style="color:rgb(88, 86, 86)" bindinput="input"></textarea>
+      </view>
+
+      <!-- <view class="page-main">
+      <view class="page-section">
+        <view>参会组</view>
+        <picker bindchange="bindPickerChangeClass" value="{{indexClass}}" range="{{arrayClass}}">
+            <view class="picker" style="display: flex;">
+              <view class="pickers">{{arrayClass[indexClass]}}</view>>
+            </view>
+          </picker>
+      </view>
+      </view> -->
+
+      <view class="create-btn">
+        <button type="primary" bindtap="handel">创建会议</button>
+      </view>
+    </form>
+</view>

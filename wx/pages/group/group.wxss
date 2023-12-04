@@ -1,0 +1,156 @@
+/* pages/group/group.wxss */
+
+/* 警示 */
+.warning {
+  background-color: #faf9f9; /* 警示部分的背景颜色 */
+  padding: 10px; /* 警示部分的内边距 */
+}
+
+.warning-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 每个警示项之间的下边距 */
+}
+
+.warning-icon {
+  width: 20px; /* 警示图标的宽度 */
+  height: 20px; /* 警示图标的高度 */
+  margin-right: 5px; /* 警示图标与警示文本之间的右边距 */
+}
+
+.warning-text {
+  color: rgb(100, 85, 235); /* 警示文本的颜色 */
+  font-weight: bold; /* 警示文本的字体加粗 */
+}
+
+.icon{
+  width: 100rpx;
+  height: 100rpx;
+}
+.icon2{
+  width: 50rpx;
+  height: 50rpx;
+  padding: 20rpx;
+}
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 其他样式属性 */
+}
+
+.view-contain-ti {
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3rpx solid #faca82;
+  border-radius: 10rpx;
+  align-items: center;
+}
+
+.text-ti {
+  position: absolute;
+  font-size: 12px;
+  background: white;
+  margin: -10px 0 0 10px;
+  padding: 0 5px;
+  color: rgb(144, 147, 167);
+}
+
+.input1 {
+  margin:  10rpx 20rpx;
+}
+
+.divider{
+  height:1px;
+  margin:15px 5px;
+  background-color: rgba(169, 169, 169, 0.548);
+}
+
+/* 我的群 */
+.dropdown{
+  margin-top:10px;
+}
+
+.dropdown-header{
+  margin-left:10px;
+}
+
+.dropdown-list{
+  margin-top:5px;
+  margin-left:10px;
+}
+
+.group{
+  align-items: center;
+  display:flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height:40px;
+  /* border:1rpx solid #f5f5f5; */
+  border-radius: 2px;
+  background-color:#fff;
+  margin:auto 2px;
+  padding:1px 3px;
+}
+
+.groupname{
+  width:60%;
+}
+
+.GroupDetail{
+  display: flex;
+  flex-direction: column;
+  margin-top:5px;
+}
+
+p{
+margin:5px 3px;
+}
+
+button{
+  font-weight: 400;
+  font-size:13px;
+  background-color: rgba(169, 169, 169, 0.253);
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100px; /* 根据需求设置高度 */
+}
+
+.swiper-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
+  overflow-x: scroll;
+  padding: 10px;
+}
+
+.member-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.name {
+  max-width: 60px; /* 根据需求设置最大宽度 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 5px;
+}

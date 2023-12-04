@@ -1,0 +1,114 @@
+<!--pages/report/report.wxml-->
+
+
+<view class="containers">
+
+
+<view class="warning">
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">会议尽量提前通知。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">请勿重复更改会议详情。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">进入讨论区及时签到。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">如有问题请联系管理员。</view>
+  </view>
+</view>
+
+<view class="divider1">
+</view>
+<view class="box">
+    <view class="row" >
+       <view class="textheader">
+        <text style="font-size: 35rpx;">{{noticeData.title}}</text>
+       </view>
+
+         
+          <view class="container">
+    <view class="text" style="width: 700rpx;font-size: 38rpx;color: grey;">内容:{{noticeData.text}}</view>
+        </view>
+        
+        <view class="divider2" style="padding-top: 5rpx;"></view>
+          <view style="display: flex;align-items: center;">
+            <image src="/static/images/填选购人.svg"  class="icon" ></image>       
+  <text style="color: grey;">发布人: {{noticeData.promoter}}</text>
+  
+
+ 
+  <!-- <navigator url="/pages/comment/comment" class="out">
+    <image src="https://himg.bdimg.com/sys/portraitn/item/public.1.8595919c.892zqQa3pc2nzUF8t0JzQA" class="image"></image>
+  </navigator> -->
+</view>
+     <view style="display: flex;padding-top: 5rpx;align-items: center;">
+      <image src="/static/images/定位.svg"  class="icon" ></image>
+      <text style="color: grey;"> {{noticeData.address}}</text>
+    
+    </view>
+     <view style="display: flex; align-items: center;" bindtap="showMemberDetail">
+      <image src="/static/images/成员管理.svg"  class="icon"></image>
+          <text class="hover-text" style="color: rgb(47, 179, 255);">查看参会成员信息....
+          </text>
+          <image src="/static/images/arrow-double-right.svg"  class="icon"></image>
+     </view>
+     <view style="display: flex; align-items: center;"bindtap="showGroupDetail">  
+      <image src="/static/images/组.svg" style="margin-left: 10rpx;" class="icon"></image>
+          <text class="hover-text" style="color: rgb(47, 144, 255);">查看组信息....
+          </text>
+          <image src="/static/images/arrow-double-right.svg"  class="icon"></image>
+     </view>
+
+     <view style="display: flex;text-align: right;">
+      <image src="/static/images/行进.svg" style="margin-left: auto;height: 80rpx;width: 80rpx;" class="icon"></image>
+  <image src="/static/images/group.svg" style="margin-right: 0;" bindtap="navigateToDetail" data-item="{{noticeData}}" style="height: 90rpx;width: 90rpx;"></image>
+     </view>
+    </view>
+    
+</view>
+    <view style="display: flex;align-items: center;justify-content: center;">
+      <image src="/static/images/尽调问卷.svg" style="width: 100rpx;"></image>
+      <image src="/static/images/更多.svg" style="width: 100rpx;"></image>
+    </view>
+
+    <view style="display: flex;align-items: center;justify-content: center;">
+    暂无更多信息
+    </view>
+    <view style="display: flex;align-items: center;justify-content: center;">
+    如有疑问请联系管理员哦
+    </view>
+</view>
+
+<view>
+  <modal hidden="{{isShowGroupDetail}}" bindconfirm="Groupdetail" bindcancel="Groupdetail">
+    <text>查看组信息</text>
+    <swiper class="swiper-container" indicator-dots="{{false}}" circular="{{true}}" duration="{{500}}">
+  <swiper-item class="swiper-item">
+    <view class="member-row">
+      <view class="member-item" wx:for="{{ModalData.member}}" wx:key="{{item.id}}">
+        <image class="avatar" src="{{item.image}}"></image>
+        <text class="name">{{item.name}}</text>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+  </modal>
+</view>
+
+<view>
+  <modal hidden="{{isShowMemberDetail}}" bindconfirm="Groupdetail" bindcancel="Groupdetail">
+    <text>查看参会成员</text>
+<view>
+  <view class="groups" wx:for="{{groups.group}}" wx:key="{{item.id}}">
+        <image class="avatar" src="{{item.image}}"></image>
+        <text class="name">{{item.name}}</text>
+  </view>
+</view>
+  </modal>
+</view>

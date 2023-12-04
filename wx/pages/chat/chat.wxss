@@ -1,0 +1,88 @@
+/* pages/chat/chat.wxss */
+
+.container {
+  padding: 10px;
+  background: -webkit-linear-gradient(top,rgb(222, 226, 241),rgb(222, 223, 228),#37437a);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-scroll {
+  flex: 1;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow: hidden;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message-content {
+  font-size:15px;
+  background-color: #f0f0f0;
+  padding: 4px;
+  border: 1px solid rgb(241, 226, 226);
+  border-radius:10rpx;
+  margin-right:20rpx;
+}
+
+.message-time {
+  font-size: 15px;
+  color: #999999;
+}
+
+.input-container {
+  align-items: center;
+  padding: 10px;
+}
+
+.input-box {
+  flex: 1;
+  margin:10rpx;
+  height: 30px;
+  padding: 5px;
+  border:1px solid rgba(165, 152, 152, 0.705);
+  border-radius: 10rpx;
+}
+
+.send-button {
+  margin-left: 10px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007AFF;
+  color: #ffffff;
+}
+
+.pic{
+  height: 50rpx;
+  width: 50rpx;
+}
+.selected{
+  display: flex;
+  
+  align-items: center;
+  margin-left: 5rpx;
+  
+}
+.swtichRow{
+  display: flex;
+  align-items: center;
+  padding-bottom: 5rpx;
+}
+
+.button{
+   padding: 5rpx;
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+.radio-icon {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+}

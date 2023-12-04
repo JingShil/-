@@ -1,0 +1,11 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "通知撰写",
+  "navigationBarBackgroundColor": "#CCFFFF",
+  "properties": {
+    "item": {
+      "type": null,
+      "value": null
+    }
+  }
+}

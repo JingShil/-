@@ -1,0 +1,70 @@
+/**index.wxss**/
+.containers{
+  background-color: #eeeeee;
+  height : 100vh;
+}
+
+swiper {
+   background-color: #a7d3e8;
+  height: 420rpx;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+
+swiper image {
+  height: 100%;
+  width: 100%;
+  z-index:-999;
+}
+.divider{
+  background-color: rgba(128, 128, 128, 0.185);
+  height:1px;
+  margin:5rpx 10rpx;
+}
+
+.main_items{
+  box-sizing: border-box;
+  /* width:100%; */
+  /* height:150px; */
+  background-color: #fff;
+  border:1px solid rgba(128, 128, 128, 0.226);
+  margin: 10px;
+  margin-top:-40rpx;
+  border-radius: 20rpx;
+  /* display: flex; */
+  /* justify-content: sp; */
+}
+
+.main_items_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding:20px;
+  height:100%;
+}
+
+.main_items_item text{
+font-size: 18px;
+font-weight: 540;
+}
+
+.main_items_item image{
+  width:40px;
+  height:40px;
+  /* border:1px solid black; */
+  /* border-radius: 50%; */
+  /* margin:30px; */
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

@@ -1,0 +1,10 @@
+<view class="dropdown">
+  <view class="dropdown-header" bindtap="toggleDropdown">
+    {{ dropdownOpen ? '收起好友列表' : '展开好友列表' }}
+    <text class="arrow">{{ dropdownOpen ? '▲' : '▼' }}</text>
+  </view>
+  <view class="dropdown-list" wx:if="{{ dropdownOpen }}">
+    <!-- 在这里插入您的好友列表内容 -->
+    <view class="friend" wx:for="{{ friends }}" wx:key="{{ index }}">{{ item }}</view>
+  </view>
+</view>

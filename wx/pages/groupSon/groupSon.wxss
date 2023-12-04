@@ -1,0 +1,76 @@
+/* pages/groupSon/groupSon.wxss */
+/* 警示 */
+.warning {
+  background-color: #faf9f9; /* 警示部分的背景颜色 */
+  padding: 10px; /* 警示部分的内边距 */
+}
+
+.warning-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 每个警示项之间的下边距 */
+}
+
+.warning-icon {
+  width: 20px; /* 警示图标的宽度 */
+  height: 20px; /* 警示图标的高度 */
+  margin-right: 5px; /* 警示图标与警示文本之间的右边距 */
+}
+
+.warning-text {
+  color: rgb(100, 85, 235); /* 警示文本的颜色 */
+  font-weight: bold; /* 警示文本的字体加粗 */
+}
+.view-contain-ti {
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3rpx solid #bac5f8;
+  border-radius: 10rpx;
+  align-items: center;
+}
+
+.text-ti {
+  position: absolute;
+  font-size: 12px;
+  background: white;
+  margin: -10px 0 0 10px;
+  padding: 0 5px;
+  color: rgb(144, 147, 167);
+}
+
+.input1 {
+  margin:  10rpx 20rpx;
+  width: 500rpx;
+}
+.icon{
+  margin-left: 10rpx;
+  width:  110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+}
+.icon2{
+  margin-right: 0;
+  width:  50rpx;
+  height: 50rpx;
+}
+.sexicon{
+  width:  40rpx;
+  height: 40rpx;
+}
+
+.userout{
+  padding: 10rpx;
+}
+
+.userbox{
+  height: 100rpx;
+  width: 100%;
+  background: white;
+  border: 1px solid gray;
+  margin-bottom: 30rpx;
+}
+.userbox .pic{
+  height: 100rpx;
+  width: 25%;
+}

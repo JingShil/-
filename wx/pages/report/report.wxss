@@ -1,0 +1,85 @@
+/* pages/report/report.wxss */
+
+.containers{
+
+    /* background: -webkit-linear-gradient(top,rgb(222, 226, 241),rgb(225, 227, 238),#1a33a5); */
+}
+.box{
+    
+}
+.textheader{
+  display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.box .row{
+   width: 100vw;
+   height: 400rpx;
+   padding: 5rpx;
+   padding-top: 10rpx;
+   background: whitesmoke;
+}
+
+.image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 0;
+}
+
+.container {
+
+}
+
+
+.text {
+  
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+.hover-text:hover {
+  color: blue;
+
+}
+
+/*分割线*/
+.divider1 {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(224, 224, 224);
+}
+.divider2 {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.icon{
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+
+/* 警示 */
+.warning {
+  background-color: #ffcccc; /* 警示部分的背景颜色 */
+  padding: 10px; /* 警示部分的内边距 */
+}
+
+.warning-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 每个警示项之间的下边距 */
+}
+
+.warning-icon {
+  width: 20px; /* 警示图标的宽度 */
+  height: 20px; /* 警示图标的高度 */
+  margin-right: 5px; /* 警示图标与警示文本之间的右边距 */
+}
+
+.warning-text {
+  color: red; /* 警示文本的颜色 */
+  font-weight: bold; /* 警示文本的字体加粗 */
+}

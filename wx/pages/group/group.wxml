@@ -1,0 +1,87 @@
+<!--pages/group/group.wxml-->
+
+<view class="warning">
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">加入组请填写邀请码</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">邀请码禁止大规模宣传。</view>
+  </view>
+  <view class="warning-item">
+    <image class="warning-icon" src="/static/images/警示.svg" />
+    <view class="warning-text">如有问题请联系管理员。</view>
+  </view>
+</view>
+
+
+<view style="display: flex;align-items: center;justify-content: center;padding-top: 20rpx;">
+  <view style="display: flex;flex-direction: column;width: 33%;justify-content: center;align-items: center;">
+    <image src="/static/images/加群.svg" class="icon" bind:tap="showAddGroupPage"></image>
+    <text>加入组</text>
+  </view>
+
+  <view style="display: flex;flex-direction: column;width: 33%;justify-content: center;align-items: center;">
+    <image src="/static/images/创建群聊.svg" class="icon" bind:tap="showCreateGroupPage"></image>
+    <text>创建组</text>
+  </view>
+
+  <!-- <view style="display: flex;flex-direction: column;width: 33%;justify-content: center;align-items: center;">
+        <image src="/static/images/teamwork.svg" class="icon" bind:tap=""></image>
+        <text>我的群</text>
+     </view> -->
+</view>
+
+
+<view>
+  <modal hidden="{{isShowAddGroupPage}}" bindconfirm="confirmGroupModal" bindcancel="cancelGroupModal">
+    <!-- <text>加入群弹窗....</text> -->
+    <view class="view-contain-ti">
+      <view>
+        <text class="text-ti">输入邀请码</text>
+        <input class="input1" value="{{inputInvitation}}" bindinput="onInput" placeholder="请输入邀请码.."></input>
+      </view>
+      <image src="/static/images/自动生成.svg" class="icon2"></image>
+    </view>
+  </modal>
+</view>
+
+<view class="divider"></view>
+
+<!-- 我的群 -->
+<view class="dropdown">
+  <view class="dropdown-header" bindtap="toggleDropdown">
+    <!-- {{ dropdownOpen ? '我的组' : '展开我的组' }} --> 我的组
+    <text class="arrow">{{ dropdownOpen ? '▼' : '▲' }}</text>
+  </view>
+  <view class="dropdown-list" wx:if="{{ dropdownOpen }}">
+    <!-- 在这里插入您的好友列表内容 -->
+    <view class="group" wx:for="{{ groups }}" wx:key="{{ index }}">
+      <image src="/static/images/群聊.svg" style="width:20px;height:20px;border-radius: 50%;margin:0 5px;"></image>
+      <view class="groupname">{{ item.groupname }}</view>
+      <button size="mini" bindtap="showGroupDetail" data-item="{{ item }}">查看</button>
+    </view>
+  </view>
+</view>
+
+<view>
+  <modal hidden="{{isShowGroupDetail}}" bindconfirm="Groupdetail" bindcancel="Groupdetail">
+    <text>查看组详细信息</text>
+    <view class="GroupDetail">
+      <p>创建者: <span style="color:blue">{{ModalData.founderName}}</span></p>
+      <p>邀请码：<span style="color:red">{{ModalData.invitation}}</span></p>
+      <p>成员：</p>
+      <swiper class="swiper-container" indicator-dots="{{false}}" circular="{{true}}" duration="{{500}}">
+  <swiper-item class="swiper-item">
+    <view class="member-row">
+      <view class="member-item" wx:for="{{ModalData.member}}" wx:key="{{item.id}}">
+        <image class="avatar" src="{{item.image}}"></image>
+        <text class="name">{{item.name}}</text>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+    </view>
+  </modal>
+</view>
